@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+        <style>
+            body{
+        background: fixed;
+    }
+            * {
+                padding: 0;
+                margin: 0;
+            }
+        
+            body {
+                background-image: url(./img/Design_04.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            @media(max-width:767px){
+            .menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  transition-duration: .25s;
+}
+.menu__box {
+  transition-duration: .25s;
+}
+.menu__item {
+  transition-duration: .25s;
+}
+
+/* скрываем чекбокс */
+#menu__toggle {
+    opacity: 0;
+  }
+  /* стилизуем кнопку */
+  .menu__btn {
+    display: flex; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  /* добавляем "гамбургер" */
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+/* контейнер меню */
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  }
+  /* элементы меню */
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .menu__item:hover {
+    background-color: #CFD8DC;
+  }
+  #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+  }  
+  .header_nav{
+      visibility: hidden;
+  }
+}
+        
+            .header {
+                padding: 10px 5px;
+                display: grid;
+                grid-template-columns: 30% 40% 30%;
+                box-shadow: 0 0 10px rgba(182, 181, 181, 0.5);
+        
+            }
+        
+            .header_nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        
+            .header_nav a {
+                text-decoration: none;
+                color: rgb(255, 254, 254);
+                font-weight: bold;
+            }
+        
+            .get-in-touch,
+            .header-left-get-touch,
+            .main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .get-in-touch {
+                width: 100px;
+                height: 20px;
+                color: red;
+                text-decoration: none;
+            }
+        
+            .get-in-touch a {
+                text-decoration: none;
+                color: red;
+            }
+        
+            img {
+                margin-left: 15px;
+                width: 160px;
+                height: 40px;
+            }
+        
+            .main {
+                height: 1200px;
+            }
+        
+            .main-title,
+            .main-subttitle {
+                height: 50%;
+            }
+        
+            .main-subttitle {
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+        
+            .main-title,
+            .main-subtittle-left,
+            .main-subtittle-left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .main-content {
+                color: rgb(255, 255, 255);
+                width: 600px;
+                height: 210px;
+                box-shadow: 0 0 10px rgba(253, 238, 238, 0.5);
+            }
+        
+            .footer {
+                height: 200px;
+            }
+        
+            .footer,
+            .footer-left {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        
+            .footer-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        
+            .footer-left-left,
+            .footer-left-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        
+            .footer-left-left a,
+            .footer-left-right a {
+                color: white;
+                margin-bottom: 10px;
+            }
+        
+            .footer-right-logo {
+                display: flex;
+                justify-content: center;
+            }
+        
+            .footer-right-navs {
+                margin-top: 10px;
+            }
+        
+            .footer-right-navs a {
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+                margin-left: 10px;
+                font-weight: bold;
+            }
+            .container {
+                height: 100%;
+                margin: 0 auto;
+                width: 100%;
+            }
+        
+            h1 {
+                font-family: Comic Sans MS, Comic Sans, cursive;
+                ;
+                /* Гарнитура текста */
+                font-size: 54px;
+                /* Размер шрифта в процентах */
+                text-indent: 40px;
+                float: left;
+                /* Обтекание справа */
+            }
+        
+            .textt h2 {
+                font-family: Comic Sans MS, Comic Sans, cursive;
+                font-size: 20pt;
+                /* Размер шрифта в пунктах */
+        
+                text-align: center;
+            }
+        
+            p {
+                text-align: center;
+        
+            }
+        
+            .textt {
+                height: 300px;
+                width: 600px;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+        
+            * {
+                padding: 0;
+                margin: 0;
+            }
+        
+            body {
+                background-image: url(https://images.hdqwalls.com/download/firewatch-game-graphics-2560x1600.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        
+            .header {
+                padding: 10px 5px;
+                display: grid;
+                grid-template-columns: 30% 40% 30%;
+                box-shadow: 0 0 10px rgba(182, 181, 181, 0.5);
+        
+            }
+        
+        
+         
+        
+            h1 {
+                font-family: Comic Sans MS, Comic Sans, cursive;
+                /* Гарнитура текста */
+                font-size: 60px;
+                /* Размер шрифта в процентах */
+                font-weight: 900;
+                padding-left: 40px;
+            }
+        
+            p {
+                padding: 50px;
+                font-family: Comic Sans MS, Comic Sans, cursive;
+                font-size: 25px;
+                /* Размер шрифта в пунктах */
+                padding-left: 40px;
+                font-weight: 900;
+                font-style: italic;
+                text-align: center end;
+                margin-left: auto;
+                margin-right: auto;
+                width: 12em;
+        
+        
+        
+        
+            }
+        
+            * {
+                padding: 0;
+                margin: 0;
+            }
+        
+            body {
+                background-image: url(https://images.hdqwalls.com/download/firewatch-game-graphics-2560x1600.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        
+            .header {
+                padding: 10px 5px;
+                display: grid;
+                grid-template-columns: 30% 40% 30%;
+                box-shadow: 0 0 10px rgba(182, 181, 181, 0.5);
+        
+            }
+        
+            .header_nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        
+            .header_nav a {
+                text-decoration: none;
+                color: rgb(255, 254, 254);
+                font-weight: bold;
+            }
+        
+            .get-in-touch,
+            .header-left-get-touch,
+            .main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .get-in-touch {
+                width: 100px;
+                height: 20px;
+                color: red;
+                text-decoration: none;
+            }
+        
+            .get-in-touch a {
+                text-decoration: none;
+                color: red;
+            }
+        
+            img {
+                margin-left: 15px;
+                width: 160px;
+                height: 40px;
+            }
+        
+            .main {
+                height: 450px;
+            }
+        
+            .main-title,
+            .main-subttitle {
+                height: 50%;
+            }
+        
+            .main-subttitle {
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+        
+            .main-title,
+            .main-subtittle-left,
+            .main-subtittle-left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .main-content {
+                color: rgb(0, 0, 0);
+                width: 600px;
+                height: 210px;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        
+            .footer {
+                height: 200px;
+            }
+        
+            .footer,
+            .footer-left {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        
+            .footer-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        
+            .footer-left-left,
+            .footer-left-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        
+            .footer-left-left a,
+            .footer-left-right a {
+                color: white;
+                margin-bottom: 10px;
+            }
+        
+            .footer-right-logo {
+                display: flex;
+                justify-content: center;
+            }
+        
+            .footer-right-navs {
+                margin-top: 10px;
+            }
+        
+            .footer-right-navs a {
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+                margin-left: 10px;
+                font-weight: bold;
+            }
+        
+            .content {
+                padding-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+        
+            .photos {
+                padding: 40px 40px;
+            }
+        
+            .photos-fotos {
+                display: grid;
+                grid-template-columns: 1fr 1fr
+            }
+        
+            .photos-fotos img:hover {
+                transform: scale(0.9);
+            }
+        
+            .img-small {
+                margin: 0;
+                width: 50%;
+                height: 30%;
+            }
+        
+            .img-big {
+                width: 90%;
+                height: 80%;
+            }
+        
+            @media screen and (max-width: 700px) {
+                .header {
+                    grid-template-columns: 1fr;
+                }
+        
+                .header-logo {
+                    margin: 0 auto;
+                }
+        
+                .header_nav {
+                    justify-content: space-around;
+                    padding: 10px 0;
+                }
+        
+                .get-in-touch {
+                    margin: 10px 0;
+                }
+        
+                .footer {
+                    grid-template-columns: 1fr;
+                }
+        
+                .footer-right-navs {
+                    display: flex;
+                }
+        
+                .container {
+                    grid-template-columns: 1fr;
+                    height: 100%;
+                }
+        
+                .container-left {
+                    text-align: center;
+                }
+        
+                .photos-fotos {
+                    grid-template-columns: 1fr;
+                }
+        
+                .img-big,
+                .img-small {
+                    width: 100%;
+                    height: 80%;
+                }
+            }
+        
+            @media screen and (max-width: 700px) {
+                .header {
+                    grid-template-columns: 1fr;
+                }
+        
+                .header-logo {
+                    margin: 0 auto;
+                }
+        
+                .header_nav {
+                    justify-content: space-around;
+                    padding: 10px 0;
+                }
+        
+                .get-in-touch {
+                    margin: 10px 0;
+                }
+        
+                .footer {
+                    grid-template-columns: 1fr;
+                }
+        
+                .footer-right-navs {
+                    display: flex;
+                }
+            }
+        
+            @media(max-width:425px) {
+                .container {
+                    height: 100%;
+                }
+                
+            }
+            @media(max-width:768px){
+                    .container{
+                        height: 100%;
+                    }
+               }
+            
+        </style>
+        
+</head>
+
+<body>
+
+    <div class="container">
+    <div class="header">
+        <div class="header-logo">
+            <img src="./img/photo_2021-03-25_21-29-19.jpg" alt="">
+        </div>
+        <div class="header_nav">
+            <a href="file:///Users/nazz/Desktop/lab%2010/services.html">Services</a>
+            <a href="file:///Users/nazz/Desktop/lab%2010/cases.html">Cases</a>
+            <a href="file:///Users/nazz/Desktop/lab%2010/about.html">About</a>
+            <a href="file:///Users/nazz/Desktop/lab%2010/producthub.html">Product Hub</a>
+        </div>
+        <div class="header-left-get-touch">
+            <div class="get-in-touch">
+                <a href="file:///Users/nazz/Desktop/lab%2010/index.html">Get in touch</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="main-content">
+            <div class="main-title">
+                Interested in working together?
+            </div>
+            <div class="main-subttitle">
+                <div class="main-subtittle-left">
+                    Initiate project
+                </div>
+                <div class="main-subtittle-left">
+                    We are hiring
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer" style="border-bottom: 2px solid black;">
+        <div class="footer-left">
+            <div class="footer-left-left">
+                <a href="https://goo.gl/maps/VEQEgp2a6d4vdcB8A">Address</a>
+                <a href="https://goo.gl/maps/VEQEgp2a6d4vdcB8A">Lviv, Ukraine</a>
+                <a href="http://vns.lpnu.ua/user/profile.php?id=136677"></a>
+            </div>
+            <div class="footer-left-right">
+                <a href="http://vns.lpnu.ua/user/profile.php?id=136677">Contact Us</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox">Distroid20031@mail.com</a>
+                <a href="+380966690145">+38012345621</a>
+
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-right-logo">
+                <img src="./img/photo_2021-03-25_21-29-19.jpg" alt="">
+            </div>
+            <div class="footer-right-navs">
+                <a href="">Contact Us</a>
+                <a href="https://mail.google.com/mail/u/0/#inbox">Distroid20031@mail.com</a>
+                <a href="+380966690145">+38012345621</a>
+                <title>Меню</title>
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+        <ul class="menu__box">
+          <li><a class="menu__item" href="file:///Users/nazz/Desktop/lab%2010/services.html">Services</a></li>
+          <li><a class="menu__item" href="file:///Users/nazz/Desktop/lab%2010/cases.html">Cases</a></li>
+          <li><a class="menu__item" href="file:///Users/nazz/Desktop/lab%2010/about.html">About</a></li>
+          <li><a class="menu__item" href="file:///Users/nazz/Desktop/lab%2010/producthub.html">Product Hub</a></li>
+          <li><a class="menu__item" href="file:///Users/nazz/Desktop/lab%2010/index.html">Get in touch</a></li>
+        </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
